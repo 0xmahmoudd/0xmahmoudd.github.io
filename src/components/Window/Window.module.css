@@ -1,0 +1,126 @@
+.windowFrame {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-dark-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--window-radius);
+  box-shadow: var(--shadow-window);
+  overflow: hidden;
+  backdrop-filter: var(--plasma-blur);
+  -webkit-backdrop-filter: var(--plasma-blur);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.windowFrame.active {
+  border-color: var(--accent-glow);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.7), 0 0 15px var(--accent-glow);
+}
+
+.windowFrame.maximized {
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.titlebar {
+  height: 38px;
+  background: linear-gradient(180deg, #2a2e32 0%, #232629 100%);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.75rem;
+  cursor: grab;
+  user-select: none;
+}
+
+.titlebar:active {
+  cursor: grabbing;
+}
+
+.titleContent {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.titleIcon {
+  color: var(--accent-color);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.titleText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.windowControls {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.controlBtn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.controlBtn:hover {
+  transform: scale(1.1);
+}
+
+.minimizeBtn:hover {
+  background: var(--btn-minimize-bg);
+  color: #000;
+}
+
+.maximizeBtn:hover {
+  background: var(--btn-maximize-bg);
+  color: #000;
+}
+
+.closeBtn:hover {
+  background: var(--btn-close-bg);
+  color: #fff;
+}
+
+.controlIcon {
+  font-size: 0.65rem;
+}
+
+.windowContent {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: rgba(27, 30, 32, 0.95);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .windowFrame {
+    width: 100vw !important;
+    height: calc(100vh - var(--panel-height)) !important;
+    left: 0 !important;
+    top: 0 !important;
+    border-radius: 0 !important;
+  }
+}
