@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 
+const WindowManagerContext = createContext();
+
 const getInitialPosition = (width, height) => {
   const isBrowser = typeof window !== 'undefined';
   const screenWidth = isBrowser ? window.innerWidth : 1280;
