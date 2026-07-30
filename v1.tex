@@ -1,0 +1,231 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume  
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+\vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+\item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{-2pt}\item
+\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+\textbf{#1} & #2 \\
+\textit{\small#3} & \textit{\small #4} \\
+\end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+\item
+\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+\textit{\small#1} & \textit{\small #2} \\
+\end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+\item
+\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+\small\textbf{#1} & \textit{\small #2} \\
+\end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+\textbf{\Huge \scshape Mahmoud Ayman} \\ 
+\vspace{3pt}
+\textit{\Large Backend Developer | Software Engineer} \\ \vspace{2pt}
+\small Cairo, Egypt $|$ +201155020441 $|$ 
+\href{mailto:mahmoud.ayman.fcai@gmail.com}{\underline{mahmoud.ayman.fcai@gmail.com}} $|$ 
+\href{https://www.linkedin.com/in/0xmahmoudd/}{\underline{linkedin.com/in/0xmahmoudd}} $|$
+\href{https://github.com/0xmahmoudd}{\underline{github.com/0xmahmoudd}}
+\end{center}
+
+
+%-----------SUMMARY-----------
+\section{Summary}
+Computer Science student (graduating Aug. 2026) with a strong foundation in Operating Systems, Databases, Networking, Data Structures \& Algorithms, and Software Engineering. Solved 300+ algorithmic problems across LeetCode, NeetCode, and Codeforces before specializing in backend development using ASP.NET Core.
+
+I enjoy becoming a T-shaped engineer by combining backend knowledge with frontend experience using React. Currently preparing for the AWS Certified Solutions Architect – Associate (SAA-C03) certification and have built tooling on top of the open-source pgwatch project.
+
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+    {Beni Suef University}{Beni Suef, Egypt}
+    {B.Sc. in Computer Science, Faculty of Computers and Artificial Intelligence}{Sep. 2022 -- Aug. 2026}
+
+\resumeItemListStart
+\resumeItem{\textbf{GPA:} 3.25 / 4.00}
+\resumeItem{\textbf{Relevant Coursework:} Data Structures, Algorithm Design, Software Engineering, Operating Systems, Database Internals, Networking, Artificial Intelligence, Machine Learning, Compiler Construction}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+    {\textbf{Quiz Monitor} \textbar{} \href{https://github.com/Quiz-Monitor/Backend}{\underline{GitHub}} \textbar{} \textbf{Graduation Project}}
+    {ASP.NET Core, PostgreSQL, EF Core, Docker}
+\mbox{}\\
+
+  Built the core backend for an AI-driven exam proctoring platform. Designed an N-Tier architecture to support both a student web interface and an instructor mobile app.
+
+\resumeItemListStart
+\resumeItem{Built a RESTful API using ASP.NET Core 9 and Entity Framework Core to manage the full exam lifecycle, from instructor creation to secure student submission.}
+\resumeItem{Designed and provisioned the PostgreSQL database schema on Supabase, implementing Unit of Work and generic Repository patterns to keep transactions consistent across complex operations.}
+\resumeItem{Built an append-only violation logging system to record real-time AI-detected cheating events, including eye-tracking anomalies and unauthorized tab switching.}
+\resumeItem{Containerized the application with a multi-stage Dockerfile to reduce image size, and managed the production deployment to Railway.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+    {\textbf{MockAPIs} $|$ \href{https://github.com/0xmahmoudd/MockAPIs}{\underline{GitHub}} $|$ \href{https://mock-apis-nine.vercel.app/}{\underline{Live Demo}}}{ASP.NET Core, React, PostgreSQL, Docker, Railway, Vercel}
+\mbox{}\\
+
+  Built and deployed a full-stack platform that lets frontend teams design custom schemas and instantly generate stateful mock REST APIs. Implemented a 3-layer .NET backend and a React SPA, and authored a production-ready AWS architecture blueprint following the AWS Well-Architected Framework.
+\resumeItemListStart
+\resumeItem{Built management APIs and an interactive React explorer to configure resources, custom fields, dynamic endpoints, and automated fake data generation.}
+\resumeItem{Designed (not yet deployed) a production-grade AWS architecture: multi-AZ EC2 Auto Scaling behind an ALB, Amazon RDS PostgreSQL (Multi-AZ), CloudFront/S3 SPA hosting, and AWS WAF.}
+\resumeItem{Eliminated an $O(N)$ in-memory pagination bottleneck by pushing OFFSET/LIMIT down to PostgreSQL; benchmarked with k6 (50 concurrent users, 10K seeded records), cutting latency by 98.4\% (859ms $\rightarrow$ 13.5ms) and increasing throughput by $\sim$80\%.}
+\resumeItem{Containerized the application with Docker and deployed the prototype across Railway (API), Supabase (managed Postgres), and Vercel (React SPA).}
+\resumeItemListEnd
+
+\resumeProjectHeading
+    {\textbf{AskFm Backend System }\textbar{} \href{https://github.com/0xmahmoudd/AskFmBackend/tree/Develop}{\underline{GitHub}} \textbar{} \href{https://youtu.be/MUeUZzyzSoA?si=2UQhasBaNozVdtMS}{\underline{Demo Video}}}
+    {C\#, ASP.NET Core, EF Core, SignalR, SQL Server, xUnit}
+\mbox{}\\
+
+  Built a backend for a social Q\&A platform, exposing REST APIs and real-time notifications. Used an N-Tier architecture with Repository and Unit of Work patterns for maintainability and testability.
+\resumeItemListStart
+\resumeItem{Built a real-time notification pipeline using SignalR to broadcast user interaction events to active web clients.}
+\resumeItem{Diagnosed and fixed N+1 query bottlenecks by refactoring data access to use EF Core projections and \texttt{AsNoTracking()} for read-heavy queries.}
+\resumeItem{Cut API response times from request timeouts to sub-300ms on a seeded dataset of 15,000+ relational entities by removing unnecessary object materialization.}
+\resumeItem{Optimized bulk database operations using EF Core \texttt{ExecuteUpdateAsync} and fixed blocking async calls, reducing memory overhead and SQL Server round-trips.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+    {\textbf{pgwatch Copilot Demo} $|$  \href{https://github.com/Mahmoud-Ayman-Saleh/pgwatch-copilot-demo}{\underline{GitHub}} \textbar{} \href{https://youtu.be/7r7parBjPwE?si=UMDRcQQ76PhA8fgl}{\underline{Demo Video}}}{Golang, PostgreSQL, CLI}
+\mbox{}\\
+\resumeItemListStart
+\small{\textit{pgwatch is an open-source PostgreSQL monitoring tool that continuously collects database performance metrics over time so you can spot issues, trends, and bottlenecks. Built a CLI on top of it that turns plain-English monitoring questions into safe PostgreSQL queries, returning results as table/JSON/CSV with optional plain-English takeaways.}}
+\resumeItem{Built an end-to-end query pipeline (question $\rightarrow$ schema inspect $\rightarrow$ SQL generation $\rightarrow$ AST validation $\rightarrow$ execution $\rightarrow$ formatting) in Go with Cobra and pgx, so operators can get metrics insights without writing SQL by hand.}
+\resumeItem{Designed a safety layer that parses generated SQL with PostgreSQL's real parser (pg\_query), rejects non-SELECT and multi-statement input, blocklists risky functions, and runs queries inside read-only transactions with statement timeouts and auto-LIMITs to prevent destructive or runaway queries.}
+\resumeItem{Implemented live schema introspection that discovers metric tables and JSONB keys and feeds that context into the LLM prompt, improving query relevance for pgwatch-style data stored in JSONB payloads.}
+\resumeItem{Added deterministic LLM behavior (Gemini at temperature 0), a dry-run mode, and an optional "explain results" pass; backed core logic with unit tests for SQL validation and prompt schema formatting, and generated seeded demo data at 5-minute intervals over 7 days for reproducible testing.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+    {\textbf{MechanicShop API} $|$ \href{https://github.com/0xmahmoudd/Mechanic-Shop}{\underline{GitHub}}}
+    {C\#, ASP.NET Core 9, EF Core, PostgreSQL, xUnit, k6}
+\mbox{}\\
+
+
+  A RESTful API for an auto repair shop, handling repair task scheduling, inventory management, and automated invoicing.
+\resumeItemListStart
+\resumeItem{Built the backend using ASP.NET Core 9 and Clean Architecture, keeping the core domain model decoupled from infrastructure for easier maintenance and testing.}
+\resumeItem{Optimized database queries by pushing pagination, filtering, and complex joins down to PostgreSQL, cutting average API response times by 98.9\% (2.72s $\rightarrow$ 28ms) and increasing throughput by 365\% under k6 load testing on a 10,000-record seeded dataset.}
+\resumeItem{Designed a domain model that supports historical pricing data and enforced transactional boundaries with the Unit of Work pattern to keep data consistent during automated invoice generation.}
+\resumeItem{Secured the API with JWT authentication and role-based access control (RBAC), and validated business logic with unit and integration tests using xUnit.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------CERTIFICATES-----------
+\section{Certificates}
+\resumeSubHeadingListStart
+\resumeSubItem{Mastering ASP.NET Core APIs -- Course Certificate}
+\resumeSubItem{AWS Solutions Architect Associate (SAA-C03) Prep -- Manara, Course Certificate}
+\resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+\small{\item{
+\textbf{Languages:} Golang, C\#, SQL, C++, Java \\
+\textbf{Frameworks:} ASP.NET Core, Entity Framework, SignalR \\
+\textbf{Databases:} SQL Server, PostgreSQL \\
+\textbf{Tools:} Docker, Git, Visual Studio, Linux, AWS \\
+\textbf{Concepts:} REST APIs, Clean Architecture, SOLID, Design Patterns        
+  }}
+\end{itemize}
+
+
+%-------------------------------------------
+\end{document}
