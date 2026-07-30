@@ -1,0 +1,810 @@
+/* Application View CSS Modules */
+
+.appContainer {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.aboutHero {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(61, 174, 233, 0.15) 0%, rgba(35, 38, 41, 0.7) 100%);
+  border: 1px solid var(--border-bright);
+  border-radius: 10px;
+}
+
+.heroAvatarBox {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 2.5rem;
+  box-shadow: 0 0 20px var(--accent-glow);
+  flex-shrink: 0;
+}
+
+.heroDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.heroName {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.heroTitle {
+  font-size: 1.05rem;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.2rem;
+  flex-wrap: wrap;
+}
+
+.metaBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.heroActionBtns {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.sectionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.sectionHeader {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.4rem;
+}
+
+.bioText {
+  color: #d1d5db;
+  line-height: 1.65;
+  font-size: 0.92rem;
+  white-space: pre-line;
+}
+
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.highlightTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 0.3rem;
+}
+
+.highlightDesc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.eduHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.eduSchool {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.eduDegree {
+  font-size: 0.88rem;
+  color: var(--accent-color);
+}
+
+.eduMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.eduPeriod {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.courseworkLabel {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.skillsTagCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.courseChip {
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.78rem;
+  color: var(--text-primary);
+}
+
+/* Projects & Articles Cards Grid */
+.toolbarRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.searchBox {
+  position: relative;
+  flex: 1;
+  min-width: 240px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.searchBox input {
+  padding-left: 2.3rem;
+}
+
+.categoryFilters {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-dark-tertiary);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filterBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.filterActive {
+  background: rgba(61, 174, 233, 0.25) !important;
+  border-color: var(--accent-color) !important;
+  color: var(--accent-color) !important;
+  font-weight: 700;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.cardCat {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+
+.cardDesc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+}
+
+.techTagsInline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.miniTag {
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: rgba(61, 174, 233, 0.1);
+  color: var(--accent-color);
+  font-size: 0.72rem;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 0.75rem;
+}
+
+/* Detail Views */
+.detailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.8rem;
+}
+
+.projectHero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.projectTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.projectSub {
+  font-size: 1rem;
+  color: var(--accent-color);
+}
+
+.projectLinks {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.techBadge {
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  background: rgba(61, 174, 233, 0.2);
+  border: 1px solid var(--accent-color);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.archText {
+  font-family: monospace;
+  font-size: 0.88rem;
+  color: #3daee9;
+  line-height: 1.6;
+}
+
+.metricVal {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #2ecc71;
+  margin-bottom: 0.2rem;
+}
+
+.metricLabel {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+.checkIcon {
+  color: var(--accent-color);
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+/* Articles Layout */
+.articleReaderLayout {
+  display: flex;
+  gap: 1.5rem;
+  overflow: hidden;
+}
+
+.articleContentColumn {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.tocSidebar {
+  width: 240px;
+  background: rgba(20, 23, 26, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  height: fit-content;
+}
+
+.tocHeader {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.4rem;
+}
+
+.tocList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.tocItem a {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.tocItem a:hover {
+  color: var(--accent-color);
+}
+
+/* Skills Matrix */
+.skillsSectionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.catTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.catIcon {
+  color: var(--accent-color);
+  font-size: 1.3rem;
+}
+
+.catDesc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.skillHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.skillName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background: var(--accent-gradient);
+  border-radius: 3px;
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.certProvider {
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Resume Component */
+.resumePaper {
+  background: #ffffff;
+  color: #1a1a1a;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.resumeHeader {
+  text-align: center;
+}
+
+.resumeName {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.resumeSubTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0284c7;
+}
+
+.resumeContactLine {
+  font-size: 0.85rem;
+  color: #475569;
+  margin-top: 0.2rem;
+}
+
+.resumeDivider {
+  border: none;
+  border-top: 2px solid #0f172a;
+}
+
+.resumeSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.resumeSecTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-transform: uppercase;
+  border-bottom: 1px solid #cbd5e1;
+  padding-bottom: 0.2rem;
+  letter-spacing: 0.05em;
+}
+
+.resumeBodyText {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.resumeItemRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.92rem;
+  color: #0f172a;
+}
+
+.resumeProjBox {
+  margin-bottom: 0.6rem;
+}
+
+.resumeBulletList {
+  padding-left: 1.25rem;
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+/* Contact Component */
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.contactInfoCol, .contactFormCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactItemRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.contactIconBox {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: rgba(61, 174, 233, 0.15);
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.contactItemLabel {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.contactItemVal {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.formLabel {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.35rem;
+}
+
+.successBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  gap: 0.75rem;
+}
+
+.successIcon {
+  font-size: 3rem;
+  color: #2ecc71;
+}
+
+/* Terminal Component */
+.terminalContainer {
+  background: #14171a;
+  height: 100%;
+  padding: 1rem;
+  font-family: "Fira Code", "Cascadia Code", "Courier New", monospace;
+  font-size: 0.88rem;
+  display: flex;
+  flex-direction: column;
+  color: #f8f8f2;
+}
+
+.terminalOutput {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.termLine {
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.termInputLine {
+  color: #3daee9;
+  font-weight: bold;
+}
+
+.termError {
+  color: #e74c3c;
+}
+
+.terminalInputRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.promptLabel {
+  color: #2ecc71;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.termInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Settings Component */
+.settingSecTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 0.6rem;
+}
+
+.wallpaperGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.wallpaperCard {
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.4rem;
+  cursor: pointer;
+  background: var(--bg-dark-tertiary);
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.wallpaperCard:hover {
+  border-color: var(--accent-color);
+}
+
+.wallpaperActive {
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.wallpaperPreview {
+  width: 100%;
+  height: 70px;
+  border-radius: 6px;
+}
+
+.wallpaperName {
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.accentGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.accentChip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-dark-tertiary);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.accentChipActive {
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.colorDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.toggleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutHero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .metaRow, .heroActionBtns {
+    justify-content: center;
+  }
+
+  .articleReaderLayout {
+    flex-direction: column;
+  }
+
+  .tocSidebar {
+    width: 100%;
+  }
+}
