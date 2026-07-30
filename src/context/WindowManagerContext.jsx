@@ -1,6 +1,14 @@
 import React, { createContext, useContext, useState } from 'react';
 
-const WindowManagerContext = createContext();
+const getInitialPosition = (width, height) => {
+  const isBrowser = typeof window !== 'undefined';
+  const screenWidth = isBrowser ? window.innerWidth : 1280;
+  const screenHeight = isBrowser ? window.innerHeight : 800;
+
+  const calcX = Math.max(10, Math.floor((screenWidth - width) / 2));
+  const calcY = Math.max(10, Math.floor((screenHeight - 48 - height) / 2));
+  return { x: calcX, y: calcY };
+};
 
 export const INITIAL_WINDOWS = {
   about: {
@@ -12,7 +20,7 @@ export const INITIAL_WINDOWS = {
     isMaximized: false,
     zIndex: 10,
     defaultSize: { width: 780, height: 560 },
-    defaultPosition: { x: 80, y: 50 },
+    defaultPosition: getInitialPosition(780, 560),
     params: {}
   },
   projects: {
@@ -91,10 +99,10 @@ export const INITIAL_WINDOWS = {
     id: 'terminal',
     title: 'Konsole — Konsole Linux Terminal',
     icon: 'terminal',
-    isOpen: true,
+    isOpen: false,
     isMinimized: false,
     isMaximized: false,
-    zIndex: 12,
+    zIndex: 1,
     defaultSize: { width: 750, height: 480 },
     defaultPosition: { x: 260, y: 120 },
     params: {}
@@ -115,7 +123,7 @@ export const INITIAL_WINDOWS = {
 
 export const WindowManagerProvider = ({ children }) => {
   const [windows, setWindows] = useState(INITIAL_WINDOWS);
-  const [activeWindowId, setActiveWindowId] = useState('terminal');
+  const [activeWindowId, setActiveWindowId] = useState('about');
   const [launcherOpen, setLauncherOpen] = useState(false);
 
   const getHighestZIndex = () => {
