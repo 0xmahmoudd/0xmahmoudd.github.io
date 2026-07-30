@@ -1,38 +1,17 @@
 import React, { useState } from 'react';
-import { FaDownload, FaFileCode, FaEye, FaGraduationCap, FaBriefcase, FaCode, FaAward } from 'react-icons/fa';
+import { FaDownload, FaFileCode, FaEye, FaFilePdf } from 'react-icons/fa';
 import { aboutData } from '../../data/aboutData';
 import { projectsData } from '../../data/projectsData';
 import { skillsData } from '../../data/skillsData';
 import styles from './Apps.module.css';
 
 export const ResumeApp = () => {
-  const [activeTab, setActiveTab] = useState('preview');
+  const [activeTab, setActiveTab] = useState('pdf');
 
-  const handleDownload = () => {
-    // Generate text blob of resume data
-    const resumeText = `MAHMOUD AYMAN - Backend Developer | Software Engineer
-Cairo, Egypt | mahmoud.ayman.fcai@gmail.com | +201155020441
-LinkedIn: https://www.linkedin.com/in/0xmahmoudd | GitHub: https://github.com/0xmahmoudd
-
-SUMMARY
-${aboutData.bio}
-
-EDUCATION
-${aboutData.education.university} - ${aboutData.education.degree} (${aboutData.education.period})
-GPA: ${aboutData.education.gpa}
-
-PROJECTS
-${projectsData.map(p => `- ${p.title}: ${p.shortDescription}\n  Technologies: ${p.technologies.join(', ')}\n  GitHub: ${p.github}`).join('\n\n')}
-
-SKILLS
-${skillsData.map(s => `${s.category}: ${s.skills.map(k => k.name).join(', ')}`).join('\n')}
-`;
-
-    const blob = new Blob([resumeText], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
+  const handleDownloadPdf = () => {
     const link = document.createElement('a');
-    link.href = url;
-    link.download = 'Mahmoud_Ayman_Resume.txt';
+    link.href = './Mahmoud_Ayman_CV.pdf';
+    link.download = 'Mahmoud_Ayman_CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -45,11 +24,20 @@ ${skillsData.map(s => `${s.category}: ${s.skills.map(k => k.name).join(', ')}`).
         <div className={styles.categoryFilters}>
           <button
             className={`${styles.filterBtn} ${
+              activeTab === 'pdf' ? styles.filterActive : ''
+            }`}
+            onClick={() => setActiveTab('pdf')}
+          >
+            <FaFilePdf /> Original PDF (Mahmoud_Ayman_CV.pdf)
+          </button>
+
+          <button
+            className={`${styles.filterBtn} ${
               activeTab === 'preview' ? styles.filterActive : ''
             }`}
             onClick={() => setActiveTab('preview')}
           >
-            <FaEye /> Formatted Resume
+            <FaEye /> Formatted HTML
           </button>
 
           <button
@@ -62,12 +50,26 @@ ${skillsData.map(s => `${s.category}: ${s.skills.map(k => k.name).join(', ')}`).
           </button>
         </div>
 
-        <button className="plasma-btn plasma-btn-primary" onClick={handleDownload}>
-          <FaDownload /> Download Resume
+        <button className="plasma-btn plasma-btn-primary" onClick={handleDownloadPdf}>
+          <FaDownload /> Download PDF Resume
         </button>
       </div>
 
-      {activeTab === 'preview' ? (
+      {activeTab === 'pdf' ? (
+        <div className={styles.pdfContainer}>
+          <iframe
+            src="./Mahmoud_Ayman_CV.pdf"
+            title="Mahmoud Ayman CV PDF"
+            className={styles.pdfFrame}
+          />
+          <div className={styles.pdfFallback}>
+            <span>Trouble viewing PDF in browser?</span>
+            <button className="plasma-btn" onClick={handleDownloadPdf}>
+              <FaDownload /> Download PDF Directly
+            </button>
+          </div>
+        </div>
+      ) : activeTab === 'preview' ? (
         <div className={styles.resumePaper}>
           {/* Header */}
           <div className={styles.resumeHeader}>

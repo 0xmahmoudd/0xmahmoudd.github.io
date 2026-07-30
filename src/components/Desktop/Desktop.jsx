@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   FaUser,
   FaFolderOpen,
@@ -42,11 +42,17 @@ const DESKTOP_ITEMS = [
 
 export const Desktop = () => {
   const { openWindow, setLauncherOpen } = useWindowManager();
+  const [selectedIconId, setSelectedIconId] = useState(null);
+
+  const handleDesktopClick = () => {
+    setLauncherOpen(false);
+    setSelectedIconId(null);
+  };
 
   return (
     <div
       className={styles.desktopContainer}
-      onClick={() => setLauncherOpen(false)}
+      onClick={handleDesktopClick}
     >
       {/* Dynamic Desktop Wallpaper */}
       <DesktopWallpaper />
@@ -59,7 +65,12 @@ export const Desktop = () => {
             id={item.id}
             label={item.label}
             iconKey={item.iconKey}
-            onOpen={openWindow}
+            isSelected={selectedIconId === item.id}
+            onSelect={setSelectedIconId}
+            onOpen={(id) => {
+              setSelectedIconId(id);
+              openWindow(id);
+            }}
           />
         ))}
       </div>

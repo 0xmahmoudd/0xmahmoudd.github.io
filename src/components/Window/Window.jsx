@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useWindowManager } from '../../context/WindowManagerContext';
 import { WindowControls } from './WindowControls';
@@ -14,17 +14,26 @@ export const Window = ({ id, title, icon: IconComponent, children }) => {
     focusWindow
   } = useWindowManager();
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const win = windows[id];
-  const constraintsRef = useRef(null);
 
   if (!win || !win.isOpen) return null;
 
   const isActive = activeWindowId === id;
+  const isMax = win.isMaximized || isMobile;
 
   const windowVariants = {
-    hidden: { opacity: 0, scale: 0.85, y: 30 },
+    hidden: { opacity: 0, scale: 0.9, y: 20 },
     visible: { opacity: 1, scale: 1, y: 0 },
-    exit: { opacity: 0, scale: 0.85, y: 30 }
+    exit: { opacity: 0, scale: 0.9, y: 20 }
   };
 
   return (
@@ -32,16 +41,16 @@ export const Window = ({ id, title, icon: IconComponent, children }) => {
       {!win.isMinimized && (
         <motion.div
           className={`${styles.windowFrame} ${isActive ? styles.active : ''} ${
-            win.isMaximized ? styles.maximized : ''
+            isMax ? styles.maximized : ''
           }`}
           style={{
             zIndex: win.zIndex,
-            width: win.isMaximized ? '100vw' : `${win.defaultSize.width}px`,
-            height: win.isMaximized
+            width: isMax ? '100vw' : `${win.defaultSize.width}px`,
+            height: isMax
               ? 'calc(100vh - var(--panel-height))'
               : `${win.defaultSize.height}px`,
-            left: win.isMaximized ? 0 : `${win.defaultPosition.x}px`,
-            top: win.isMaximized ? 0 : `${win.defaultPosition.y}px`
+            left: isMax ? 0 : `${win.defaultPosition.x}px`,
+            top: isMax ? 0 : `${win.defaultPosition.y}px`
           }}
           initial="hidden"
           animate="visible"
@@ -49,7 +58,8 @@ export const Window = ({ id, title, icon: IconComponent, children }) => {
           variants={windowVariants}
           transition={{ duration: 0.2, ease: 'easeOut' }}
           onMouseDown={() => focusWindow(id)}
-          drag={!win.isMaximized}
+          onTouchStart={() => focusWindow(id)}
+          drag={!isMax}
           dragMomentum={false}
           dragElastic={0.05}
         >

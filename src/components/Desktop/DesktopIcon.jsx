@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
   FaUser,
@@ -25,13 +25,16 @@ const ICON_MAP = {
   settings: FaCog
 };
 
-export const DesktopIcon = ({ id, label, iconKey, onOpen }) => {
-  const [isSelected, setIsSelected] = useState(false);
+export const DesktopIcon = ({ id, label, iconKey, isSelected, onSelect, onOpen }) => {
   const IconComponent = ICON_MAP[iconKey] || FaFolderOpen;
 
   const handleClick = (e) => {
     e.stopPropagation();
-    setIsSelected(true);
+    if (isSelected) {
+      onOpen(id);
+    } else {
+      onSelect(id);
+    }
   };
 
   const handleDoubleClick = (e) => {
