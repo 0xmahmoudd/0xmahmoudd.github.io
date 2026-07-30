@@ -1,0 +1,47 @@
+:root {
+  /* KDE Breeze Dark Theme Colors */
+  --bg-dark-primary: #1b1e20;
+  --bg-dark-secondary: #232629;
+  --bg-dark-tertiary: #2a2e32;
+  --bg-panel: rgba(35, 38, 41, 0.78);
+  --bg-window-title: #2a2e32;
+  --bg-window-body: #1b1e20;
+  --bg-card: rgba(42, 46, 50, 0.65);
+  
+  /* Plasma Accent & Selection */
+  --accent-color: #3daee9;
+  --accent-hover: #4ec2ff;
+  --accent-glow: rgba(61, 174, 233, 0.35);
+  --accent-gradient: linear-gradient(135deg, #1d99f3 0%, #3daee9 100%);
+  
+  /* Borders & Highlights */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-bright: rgba(255, 255, 255, 0.16);
+  --border-focus: var(--accent-color);
+  
+  /* Typography Colors */
+  --text-primary: #fcfcfc;
+  --text-secondary: #bdc3c7;
+  --text-muted: #7f8c8d;
+  --text-accent: #3daee9;
+  
+  /* Breeze Button Colors */
+  --btn-close-bg: #e74c3c;
+  --btn-close-hover: #ff5c4c;
+  --btn-minimize-bg: #f1c40f;
+  --btn-maximize-bg: #2ecc71;
+  
+  /* Window Shadows & Blur */
+  --plasma-blur: blur(24px) saturate(180%);
+  --shadow-window: 0 16px 40px rgba(0, 0, 0, 0.55), 0 2px 10px rgba(0, 0, 0, 0.3);
+  --shadow-panel: 0 -4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-kickoff: 0 12px 36px rgba(0, 0, 0, 0.6);
+  
+  /* Layout Dimensions */
+  --panel-height: 48px;
+  --window-radius: 10px;
+  
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}

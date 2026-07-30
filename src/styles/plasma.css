@@ -1,0 +1,113 @@
+/* Plasma Glassmorphism & Reusable Components */
+
+.plasma-glass {
+  background: var(--bg-card);
+  backdrop-filter: var(--plasma-blur);
+  -webkit-backdrop-filter: var(--plasma-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+}
+
+.plasma-glass-panel {
+  background: var(--bg-panel);
+  backdrop-filter: var(--plasma-blur);
+  -webkit-backdrop-filter: var(--plasma-blur);
+  border: 1px solid var(--border-bright);
+}
+
+.plasma-card {
+  background: rgba(35, 38, 41, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 1.25rem;
+  transition: all var(--transition-fast);
+}
+
+.plasma-card:hover {
+  border-color: var(--accent-glow);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), 0 0 12px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.plasma-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 4px;
+  background: rgba(61, 174, 233, 0.15);
+  color: var(--accent-color);
+  border: 1px solid rgba(61, 174, 233, 0.3);
+}
+
+.plasma-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid var(--border-bright);
+  background: var(--bg-dark-tertiary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.plasma-btn:hover {
+  background: rgba(61, 174, 233, 0.2);
+  border-color: var(--accent-color);
+  color: #ffffff;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.plasma-btn-primary {
+  background: var(--accent-gradient);
+  border-color: var(--accent-color);
+  color: #ffffff;
+}
+
+.plasma-btn-primary:hover {
+  filter: brightness(1.15);
+  box-shadow: 0 0 14px var(--accent-glow);
+}
+
+.plasma-input {
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  background: rgba(20, 23, 26, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.plasma-input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* Custom Plasma Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(27, 30, 32, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}

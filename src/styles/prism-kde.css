@@ -1,0 +1,98 @@
+/* KDE Breeze Dark PrismJS Syntax Highlighting Theme */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #f8f8f2;
+  background: none;
+  font-family: "Fira Code", "Cascadia Code", "Consolas", monospace;
+  font-size: 0.9em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+}
+
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  border-radius: 8px;
+  background: #14171a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+:not(pre) > code[class*="language-"] {
+  padding: .1em .3em;
+  border-radius: .3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #bdc3c7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #f39c12;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #2ecc71;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #1d99f3;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #3daee9;
+  font-weight: bold;
+}
+
+.token.function,
+.token.class-name {
+  color: #9b59b6;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #e67e22;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
