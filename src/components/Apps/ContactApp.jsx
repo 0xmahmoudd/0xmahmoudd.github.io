@@ -25,11 +25,14 @@ export const ContactApp = () => {
     if (!formData.name || !formData.email || !formData.message) return;
 
     setSubmitted(true);
-    confetti({
-      particleCount: 70,
-      spread: 60,
-      origin: { y: 0.6 }
-    });
+    const fireConfetti = typeof confetti === 'function' ? confetti : confetti?.default;
+    if (typeof fireConfetti === 'function') {
+      fireConfetti({
+        particleCount: 70,
+        spread: 60,
+        origin: { y: 0.6 }
+      });
+    }
   };
 
   return (

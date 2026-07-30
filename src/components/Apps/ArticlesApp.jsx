@@ -51,11 +51,15 @@ export const ArticlesApp = () => {
       });
   }, [selectedArticle]);
 
-  // Apply PrismJS syntax highlighting on rendered Markdown
+  // Apply PrismJS syntax highlighting safely on rendered Markdown
   useEffect(() => {
     if (markdownContent) {
       setTimeout(() => {
-        Prism.highlightAll();
+        if (typeof Prism?.highlightAll === 'function') {
+          Prism.highlightAll();
+        } else if (typeof Prism?.default?.highlightAll === 'function') {
+          Prism.default.highlightAll();
+        }
       }, 100);
     }
   }, [markdownContent]);
