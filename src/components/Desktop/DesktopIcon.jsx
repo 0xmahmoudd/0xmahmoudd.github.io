@@ -30,7 +30,12 @@ export const DesktopIcon = ({ id, label, iconKey, isSelected, onSelect, onOpen }
 
   const handleClick = (e) => {
     e.stopPropagation();
-    if (isSelected) {
+    const isMobile = window.innerWidth <= 768 || ('ontouchstart' in window && window.navigator.maxTouchPoints > 0);
+    
+    if (isMobile) {
+      onSelect(id);
+      onOpen(id);
+    } else if (isSelected) {
       onOpen(id);
     } else {
       onSelect(id);
