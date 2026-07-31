@@ -7,7 +7,7 @@ export const aboutData = {
   github: "https://github.com/0xmahmoudd",
   linkedin: "https://www.linkedin.com/in/0xmahmoudd",
   graduation: "August 2026",
-  bio: `Computer Science student at Beni Suef University (graduating Aug. 2026) with a strong foundation in Operating Systems, Databases, Networking, Data Structures & Algorithms, and Software Engineering. I have solved 300+ algorithmic problems across LeetCode, NeetCode, and Codeforces before specializing in high-performance backend development using ASP.NET Core and Golang.
+  bio: `Computer Science fresh graduate at Beni Suef University (graduating Jul. 2026) with a strong foundation in Operating Systems, Databases, Networking, Data Structures & Algorithms, and Software Engineering. I have solved 300+ algorithmic problems across LeetCode, NeetCode, and Codeforces before specializing in high-performance backend development using ASP.NET Core and Golang.
 
 I strive to be a T-shaped engineer by combining deep backend systems knowledge (database internal optimization, AST validation, Clean Architecture, query tuning) with modern frontend craftsmanship (React, responsive design, interactive UIs). Currently preparing for the AWS Certified Solutions Architect – Associate (SAA-C03) certification and actively contributing to open-source database monitoring tools like pgwatch.`,
   education: {
