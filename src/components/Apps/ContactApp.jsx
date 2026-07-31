@@ -1,203 +1,143 @@
 import React, { useState } from 'react';
-import confetti from 'canvas-confetti';
 import {
   FaEnvelope,
   FaGithub,
   FaLinkedin,
   FaMapMarkerAlt,
-  FaPaperPlane,
-  FaCheckCircle
+  FaCopy,
+  FaCheckCircle,
+  FaPaperPlane
 } from 'react-icons/fa';
 import { aboutData } from '../../data/aboutData';
 import styles from './Apps.module.css';
 
 export const ContactApp = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [submitted, setSubmitted] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
-
-    setSubmitted(true);
-    const fireConfetti = typeof confetti === 'function' ? confetti : confetti?.default;
-    if (typeof fireConfetti === 'function') {
-      fireConfetti({
-        particleCount: 70,
-        spread: 60,
-        origin: { y: 0.6 }
-      });
-    }
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(aboutData.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
     <div className={styles.appContainer}>
-      <div className={styles.contactGrid}>
-        {/* Left Side: Direct Contact Details & Links */}
-        <div className={styles.contactInfoCol}>
-          <div className="plasma-card">
-            <h3 className={styles.sectionHeader}>Get In Touch</h3>
-            <p className={styles.bioText}>
-              I'm open to backend software engineering roles, cloud architecture projects, and technical collaborations. Feel free to reach out directly!
-            </p>
+      <div className={styles.sectionBlock}>
+        <h3 className={styles.sectionHeader}>Get In Touch</h3>
+        <p className={styles.bioText}>
+          I am actively seeking backend software engineering roles, cloud architecture opportunities, and technical collaborations. Feel free to connect directly through any of the verified channels below.
+        </p>
+      </div>
 
-            <div className={styles.contactItemRow}>
-              <div className={styles.contactIconBox}>
-                <FaEnvelope />
-              </div>
-              <div>
-                <span className={styles.contactItemLabel}>Email</span>
-                <a
-                  href={`mailto:${aboutData.email}`}
-                  className={styles.contactItemVal}
-                >
-                  {aboutData.email}
-                </a>
-              </div>
+      <div className={styles.contactGrid} style={{ gridTemplateColumns: '1fr' }}>
+        {/* Direct Contact Cards */}
+        <div className="plasma-card" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          
+          {/* Email Card */}
+          <div className={styles.contactItemRow}>
+            <div className={styles.contactIconBox}>
+              <FaEnvelope />
             </div>
-
-            <div className={styles.contactItemRow}>
-              <div className={styles.contactIconBox}>
-                <FaMapMarkerAlt />
-              </div>
-              <div>
-                <span className={styles.contactItemLabel}>Location</span>
-                <span className={styles.contactItemVal}>
-                  {aboutData.location}
-                </span>
-              </div>
+            <div style={{ flex: 1 }}>
+              <span className={styles.contactItemLabel}>Direct Email</span>
+              <a
+                href={`mailto:${aboutData.email}?subject=Opportunity%20/%20Inquiry`}
+                className={styles.contactItemVal}
+                style={{ color: 'var(--accent-color)', fontSize: '1rem' }}
+              >
+                {aboutData.email}
+              </a>
             </div>
-
-            <div className={styles.contactItemRow}>
-              <div className={styles.contactIconBox}>
-                <FaGithub />
-              </div>
-              <div>
-                <span className={styles.contactItemLabel}>GitHub</span>
-                <a
-                  href={aboutData.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.contactItemVal}
-                >
-                  github.com/0xmahmoudd
-                </a>
-              </div>
-            </div>
-
-            <div className={styles.contactItemRow}>
-              <div className={styles.contactIconBox}>
-                <FaLinkedin />
-              </div>
-              <div>
-                <span className={styles.contactItemLabel}>LinkedIn</span>
-                <a
-                  href={aboutData.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.contactItemVal}
-                >
-                  linkedin.com/in/0xmahmoudd
-                </a>
-              </div>
+            <div style={{ display: 'flex', gap: '0.5rem' }}>
+              <button
+                className="plasma-btn"
+                onClick={handleCopyEmail}
+                title="Copy Email to Clipboard"
+              >
+                {copied ? <FaCheckCircle style={{ color: '#2ecc71' }} /> : <FaCopy />}
+                {copied ? 'Copied!' : 'Copy'}
+              </button>
+              <a
+                href={`mailto:${aboutData.email}?subject=Opportunity%20/%20Inquiry`}
+                className="plasma-btn plasma-btn-primary"
+              >
+                <FaPaperPlane /> Send Email
+              </a>
             </div>
           </div>
-        </div>
 
-        {/* Right Side: Interactive Form */}
-        <div className={styles.contactFormCol}>
-          <div className="plasma-card">
-            <h3 className={styles.sectionHeader}>Send a Message</h3>
+          <hr style={{ border: 'none', borderTop: '1px solid var(--border-subtle)' }} />
 
-            {submitted ? (
-              <div className={styles.successBox}>
-                <FaCheckCircle className={styles.successIcon} />
-                <h4>Message Received!</h4>
-                <p>
-                  Thank you for reaching out, {formData.name}. I will get back to you shortly at {formData.email}.
-                </p>
-                <button
-                  className="plasma-btn"
-                  onClick={() => {
-                    setSubmitted(false);
-                    setFormData({ name: '', email: '', subject: '', message: '' });
-                  }}
-                >
-                  Send Another Message
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className={styles.formContainer}>
-                <div>
-                  <label className={styles.formLabel}>Your Name *</label>
-                  <input
-                    type="text"
-                    required
-                    className="plasma-input"
-                    placeholder="e.g. John Doe"
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                  />
-                </div>
-
-                <div>
-                  <label className={styles.formLabel}>Your Email *</label>
-                  <input
-                    type="email"
-                    required
-                    className="plasma-input"
-                    placeholder="e.g. john@example.com"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                  />
-                </div>
-
-                <div>
-                  <label className={styles.formLabel}>Subject</label>
-                  <input
-                    type="text"
-                    className="plasma-input"
-                    placeholder="e.g. Backend Developer Opportunity"
-                    value={formData.subject}
-                    onChange={(e) =>
-                      setFormData({ ...formData, subject: e.target.value })
-                    }
-                  />
-                </div>
-
-                <div>
-                  <label className={styles.formLabel}>Message *</label>
-                  <textarea
-                    required
-                    rows={4}
-                    className="plasma-input"
-                    placeholder="Type your message here..."
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="plasma-btn plasma-btn-primary"
-                  style={{ width: '100%' }}
-                >
-                  <FaPaperPlane /> Send Message
-                </button>
-              </form>
-            )}
+          {/* GitHub Card */}
+          <div className={styles.contactItemRow}>
+            <div className={styles.contactIconBox}>
+              <FaGithub />
+            </div>
+            <div style={{ flex: 1 }}>
+              <span className={styles.contactItemLabel}>GitHub Profile</span>
+              <a
+                href={aboutData.github}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.contactItemVal}
+              >
+                github.com/0xmahmoudd
+              </a>
+            </div>
+            <a
+              href={aboutData.github}
+              target="_blank"
+              rel="noreferrer"
+              className="plasma-btn"
+            >
+              Open GitHub →
+            </a>
           </div>
+
+          <hr style={{ border: 'none', borderTop: '1px solid var(--border-subtle)' }} />
+
+          {/* LinkedIn Card */}
+          <div className={styles.contactItemRow}>
+            <div className={styles.contactIconBox}>
+              <FaLinkedin />
+            </div>
+            <div style={{ flex: 1 }}>
+              <span className={styles.contactItemLabel}>LinkedIn Network</span>
+              <a
+                href={aboutData.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.contactItemVal}
+              >
+                linkedin.com/in/0xmahmoudd
+              </a>
+            </div>
+            <a
+              href={aboutData.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="plasma-btn"
+            >
+              Open LinkedIn →
+            </a>
+          </div>
+
+          <hr style={{ border: 'none', borderTop: '1px solid var(--border-subtle)' }} />
+
+          {/* Location Card */}
+          <div className={styles.contactItemRow}>
+            <div className={styles.contactIconBox}>
+              <FaMapMarkerAlt />
+            </div>
+            <div style={{ flex: 1 }}>
+              <span className={styles.contactItemLabel}>Current Location</span>
+              <span className={styles.contactItemVal}>
+                {aboutData.location}
+              </span>
+            </div>
+            <span className="plasma-badge">EET / Cairo Time</span>
+          </div>
+
         </div>
       </div>
     </div>
