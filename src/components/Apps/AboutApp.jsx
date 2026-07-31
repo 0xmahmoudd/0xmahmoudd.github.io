@@ -6,8 +6,7 @@ import {
   FaGithub,
   FaLinkedin,
   FaCode,
-  FaAws,
-  FaDatabase,
+  FaDownload,
   FaTerminal
 } from 'react-icons/fa';
 import { aboutData } from '../../data/aboutData';
@@ -45,12 +44,29 @@ export const AboutApp = () => {
             >
               Explore Projects
             </button>
+
+            <button
+              className="plasma-btn"
+              onClick={() => openWindow('resume')}
+            >
+              <FaGraduationCap /> View CV / Resume
+            </button>
+
+            <a
+              href="./Mahmoud_Ayman_CV.pdf"
+              download="Mahmoud_Ayman_CV.pdf"
+              className="plasma-btn"
+            >
+              <FaDownload /> Download CV
+            </a>
+
             <button
               className="plasma-btn"
               onClick={() => openWindow('contact')}
             >
               Contact Me
             </button>
+
             <a
               href={aboutData.github}
               target="_blank"
@@ -59,6 +75,7 @@ export const AboutApp = () => {
             >
               <FaGithub /> GitHub
             </a>
+
             <a
               href={aboutData.linkedin}
               target="_blank"
